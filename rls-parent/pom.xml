@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.rls</groupId>
+  <artifactId>rls-parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+
+  <!-- 子模块 -->
+  <modules>
+    <module>../rls-sys</module>
+  </modules>
+
+  <!-- 集中定义依赖版本号 -->
+  <properties>
+
+    <java.version>1.8</java.version>
+    <servlet-api.version>4.0</servlet-api.version>
+
+    <!-- 字符编码设置-->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+  </properties>
+
+
+  <build>
+    <plugins>
+
+      <!-- 强制设置JDK编译版本为1.8 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>

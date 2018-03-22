@@ -11,6 +11,7 @@
   <!-- 子模块 -->
   <modules>
     <module>../rls-sys</module>
+    <module>../rls-base</module>
   </modules>
 
   <!-- 集中定义依赖版本号 -->

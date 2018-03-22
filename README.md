@@ -1,9 +1,10 @@
 # rls
 rls-student
-   # Structure
+   # Structure                  version
 	   /spring boot         / 
 	   /spring data jpa    /
 	   /mysql             /
 	   /spring security  /
 	   /maven           /
+	   
 ------------------------------------------	   

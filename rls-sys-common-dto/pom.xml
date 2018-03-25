@@ -11,4 +11,8 @@
     <artifactId>rls-sys-common-dto</artifactId>
     <packaging>pom</packaging>
 
+    <dependencies>
+
+    </dependencies>
+
 </project>

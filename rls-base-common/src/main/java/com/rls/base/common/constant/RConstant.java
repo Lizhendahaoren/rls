@@ -1,6 +1,5 @@
 package com.rls.base.common.constant;
 
-import javax.lang.model.element.NestingKind;
 
 /**
  * @author ：lz

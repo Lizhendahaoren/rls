@@ -18,12 +18,6 @@
 	<name>rls-base-common</name>
 	<description>rls-base-common</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
-
 	<dependencies>
 
 	</dependencies>

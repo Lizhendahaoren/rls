@@ -19,5 +19,16 @@
         <module>../rls-sys-common-service</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.rls</groupId>
+            <artifactId>rls-base-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.rls</groupId>
+            <artifactId>rls-base-util</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

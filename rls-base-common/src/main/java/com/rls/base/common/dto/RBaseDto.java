@@ -1,11 +1,13 @@
 package com.rls.base.common.dto;
 
+import java.io.Serializable;
+
 /**
  * @author ：lz
  * @version ： 1.0
- * @Title: ${file_name}
+ * @Title: dto数据传输基类
  * @Description : ${todo}
  * @date ：2018/3/24 14:40
  */
-public interface RBaseDto {
+public class RBaseDto implements Serializable {
 }

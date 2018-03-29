@@ -1,11 +1,15 @@
 package com.rls.base.common.vo;
 
+import java.io.Serializable;
+
 /**
  * @author ：lz
  * @version ： 1.0
- * @Title: VO
+ * @Title: VO数据渲染基类
  * @Description : VO超类
  * @date ：2018/3/24 14:17
  */
-public interface RBaseVo {
+public class RBaseVo implements Serializable {
+
+
 }

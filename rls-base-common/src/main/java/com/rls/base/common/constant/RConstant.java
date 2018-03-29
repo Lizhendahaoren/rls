@@ -5,10 +5,10 @@ package com.rls.base.common.constant;
  * @author ：lz
  * @version ： 1.0
  * @Title: 常量类
- * @Description : 常量定义
+ * @Description : 常量定义基类
  * @date ：2018/3/24 11:15
  */
-public class RConstant {
+public abstract class RConstant {
 
     /**
      * 常量
@@ -29,31 +29,6 @@ public class RConstant {
         }
     }
 
-    /**
-     * 审核状态
-     *
-     * @author lz
-     * @date 2018-3-24
-     */
-    public static enum ReviewStatus {
-        WAIT(1, "待审核"), AUDIT(2, "审核中"), PASS(3, "审核通过"), NOTPASS(4, "审核不通过");
-
-        private ReviewStatus(Integer value, String name) {
-            this.value = value;
-            this.name = name;
-        }
-
-        private final Integer value;
-        private final String name;
-
-        public Integer getValue() {
-            return value;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
 
     /**
      * YES or NO

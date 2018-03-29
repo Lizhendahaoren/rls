@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * @author ：lz
@@ -24,17 +25,17 @@ public abstract class RBaseEntity implements Serializable {
     @RDescription(value = "版本", description = "hibernate维护")
     private Integer version;
 
-    @RDescription( description = "创建者")
+    @RDescription(description = "创建者")
     private Long createUser;
 
-    @RDescription( description = "创建时间")
-    private Long createTime;
+    @RDescription(description = "创建时间")
+    private LocalDate createTime;
 
     @RDescription(description = "修改者")
     private Long modifyUser;
 
     @RDescription(description = "修改时间")
-    private Long modifyTime;
+    private LocalDate modifyTime;
 
     @RDescription(description = "修改描述")
     private String modifyDescription;
@@ -80,14 +81,6 @@ public abstract class RBaseEntity implements Serializable {
         this.createUser = createUser;
     }
 
-    @Column(name = "createTime")
-    public Long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Long createTime) {
-        this.createTime = createTime;
-    }
 
     @Column(name = "modifyUser")
     public Long getModifyUser() {
@@ -98,14 +91,24 @@ public abstract class RBaseEntity implements Serializable {
         this.modifyUser = modifyUser;
     }
 
+    public void setCreateTime(LocalDate createTime) {
+        this.createTime = createTime;
+    }
+
+    @Column(name = "createTime")
+    public LocalDate getCreateTime() {
+        return createTime;
+    }
+
     @Column(name = "modifyTime")
-    public Long getModifyTime() {
+    public LocalDate getModifyTime() {
         return modifyTime;
     }
 
-    public void setModifyTime(Long modifyTime) {
+    public void setModifyTime(LocalDate modifyTime) {
         this.modifyTime = modifyTime;
     }
+
 
     @Column(name = "modifyDescription", length = 500)
     public String getModifyDescription() {

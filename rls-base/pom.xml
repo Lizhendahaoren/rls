@@ -5,16 +5,16 @@
     <parent>
         <groupId>com.rls</groupId>
         <artifactId>rls-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
         <relativePath>../rls-parent/pom.xml</relativePath>
     </parent>
 
-    <groupId>com.rls</groupId>
+    <groupId>com.rls.base</groupId>
     <artifactId>rls-base</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <!-- 子模块 -->
+    <!-- 子模块 <module>../rls-base-util</module>-->
     <modules>
         <module>../rls-base-common</module>
         <module>../rls-base-util</module>

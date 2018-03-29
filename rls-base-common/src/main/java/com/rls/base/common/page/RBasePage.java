@@ -7,5 +7,5 @@ package com.rls.base.common.page;
  * @Description : ${todo}
  * @date ：2018/3/25 17:57
  */
-public class RBasePage {
+public interface RBasePage {
 }

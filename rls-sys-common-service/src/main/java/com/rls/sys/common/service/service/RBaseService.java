@@ -1,5 +1,7 @@
 package com.rls.sys.common.service.service;
 
+import com.rls.sys.common.service.controller.RBaseController;
+
 /**
  * @author ：lz
  * @version ： 1.0
@@ -7,5 +9,5 @@ package com.rls.sys.common.service.service;
  * @Description : ${todo}
  * @date ：2018/3/24 14:43
  */
-public interface RBaseService {
+public class RBaseService{
 }

@@ -7,5 +7,5 @@ package com.rls.sys.common.service.vo;
  * @Description : VO超类
  * @date ：2018/3/24 14:17
  */
-public interface RBaseVo {
+public class RBaseVo{
 }

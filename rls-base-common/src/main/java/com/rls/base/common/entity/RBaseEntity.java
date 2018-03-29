@@ -1,8 +1,10 @@
 package com.rls.base.common.entity;
 
-import java.beans.Transient;
+import com.rls.base.common.annotation.RDescription;
+import io.swagger.annotations.ApiModelProperty;
+
+import javax.persistence.*;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 
 /**
  * @author ：lz
@@ -12,40 +14,35 @@ import java.text.SimpleDateFormat;
  * @date ：2018/3/24 14:41
  */
 public abstract class RBaseEntity implements Serializable {
-    /*
-     * ID
-     */
 
+    @RDescription(value = "id", description = "主键")
     private Long tId;
 
-    // "状态，0为无效，1为正常,3删除 参看XaConstant.Status")
+    @RDescription(value = "状态", description = "状态请参考常量定义")
     private Integer status;
 
-    // "版本,hibernate维护")
+    @RDescription(value = "版本", description = "hibernate维护")
     private Integer version;
 
-    // "@Fields createUser : 创建者")
+    @RDescription( description = "创建者")
     private Long createUser;
 
-   //"@Fields createTime : 创建时间")
+    @RDescription( description = "创建时间")
     private Long createTime;
 
-    //" 创建时间 字符串形式")
-    private String createTimeStr;
-
-    //@Fields modifyUser : 修改者")
+    @RDescription(description = "修改者")
     private Long modifyUser;
 
-    //@Fields modifyTime : 修改时间")
+    @RDescription(description = "修改时间")
     private Long modifyTime;
 
-   // "修改时间 字符串")
-    private String modifyTimeStr;
-
-   //Fields modifyDescription : 修改描述")
+    @RDescription(description = "修改描述")
     private String modifyDescription;
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Basic(optional = false)
+    @Column(name = "id", nullable = false, columnDefinition = "BIGINT UNSIGNED")
     public Long gettId() {
         return tId;
     }
@@ -54,6 +51,9 @@ public abstract class RBaseEntity implements Serializable {
         this.tId = tId;
     }
 
+
+    @RDescription(value = "状态", description = "确保赋值增加默认值1:正常")
+    @Column(nullable = false, columnDefinition = "int default 1")
     public Integer getStatus() {
         return status;
     }
@@ -62,6 +62,7 @@ public abstract class RBaseEntity implements Serializable {
         this.status = status;
     }
 
+    @Version
     public Integer getVersion() {
         return version;
     }
@@ -70,6 +71,7 @@ public abstract class RBaseEntity implements Serializable {
         this.version = version;
     }
 
+    @Column(name = "createUser")
     public Long getCreateUser() {
         return createUser;
     }
@@ -78,6 +80,7 @@ public abstract class RBaseEntity implements Serializable {
         this.createUser = createUser;
     }
 
+    @Column(name = "createTime")
     public Long getCreateTime() {
         return createTime;
     }
@@ -86,14 +89,7 @@ public abstract class RBaseEntity implements Serializable {
         this.createTime = createTime;
     }
 
-    public String getCreateTimeStr() {
-        return createTimeStr;
-    }
-
-    public void setCreateTimeStr(String createTimeStr) {
-        this.createTimeStr = createTimeStr;
-    }
-
+    @Column(name = "modifyUser")
     public Long getModifyUser() {
         return modifyUser;
     }
@@ -102,6 +98,7 @@ public abstract class RBaseEntity implements Serializable {
         this.modifyUser = modifyUser;
     }
 
+    @Column(name = "modifyTime")
     public Long getModifyTime() {
         return modifyTime;
     }
@@ -110,14 +107,7 @@ public abstract class RBaseEntity implements Serializable {
         this.modifyTime = modifyTime;
     }
 
-    public String getModifyTimeStr() {
-        return modifyTimeStr;
-    }
-
-    public void setModifyTimeStr(String modifyTimeStr) {
-        this.modifyTimeStr = modifyTimeStr;
-    }
-
+    @Column(name = "modifyDescription", length = 500)
     public String getModifyDescription() {
         return modifyDescription;
     }
@@ -125,4 +115,18 @@ public abstract class RBaseEntity implements Serializable {
     public void setModifyDescription(String modifyDescription) {
         this.modifyDescription = modifyDescription;
     }
+
+    @RDescription(description = "PrePersist该注解数据插入前的操作")
+    @PrePersist
+    public void setInsertBefore() {
+
+    }
+
+    @RDescription(description = "PreUpdate该数据修改前的操作")
+    @PreUpdate
+    public void setUpdateBefore() {
+
+    }
+
+
 }

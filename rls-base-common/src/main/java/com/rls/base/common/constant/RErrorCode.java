@@ -11,7 +11,7 @@ public class RErrorCode extends RConstant{
 
     public static enum ErrorCode {
 
-        SUCCESS(200, " 数据处理成功 "), AJAX_ERROR(300, " 请求异常 ");
+        SUCCESS(0001, " 数据验证失败 "), AJAX_ERROR(0002, " 数据转换失败 ");
 
         private ErrorCode(Integer value, String message) {
             this.value = value;

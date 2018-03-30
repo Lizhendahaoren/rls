@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Description : ${todo}
  * @date ：2018/3/29 11:23
  */
-public class RBaseResult implements Serializable {
+public class RBaseResult<T> implements Serializable {
     /**
      * 状态码：--状态码常量定义
      */
@@ -24,6 +24,27 @@ public class RBaseResult implements Serializable {
      * 数据结果集
      */
     public Object data;
+
+    public RBaseResult() {
+    }
+
+    public RBaseResult(String message) {
+        this.message = message;
+    }
+
+    public RBaseResult(int code, Object data) {
+        this.code = code;
+        this.data = data;
+    }
+
+    public RBaseResult(int code) {
+        this.code = code;
+    }
+
+    public RBaseResult(int code, String message) {
+        this.code = code;
+        this.message = message;
+    }
 
     public RBaseResult(int code, String message, Object data) {
         this.code = code;

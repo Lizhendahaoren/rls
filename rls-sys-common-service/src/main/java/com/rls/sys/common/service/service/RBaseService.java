@@ -1,6 +1,9 @@
 package com.rls.sys.common.service.service;
 
+import com.rls.base.common.result.RBaseResult;
 import com.rls.sys.common.service.controller.RBaseController;
+
+import java.util.Map;
 
 /**
  * @author ：lz
@@ -10,4 +13,5 @@ import com.rls.sys.common.service.controller.RBaseController;
  * @date ：2018/3/24 14:43
  */
 public class RBaseService{
+
 }

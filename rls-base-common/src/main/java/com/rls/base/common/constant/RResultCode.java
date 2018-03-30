@@ -15,7 +15,7 @@ public class RResultCode extends RConstant {
         SUCCESS(200, " 数据处理成功 "), AJAX_ERROR(300, " 请求异常 "),
         INVALID_SESSIONUSER(301, " 连接超时 "), COMMIT_ERROR(303, " 重复提交 "),
         AUTH_ERROR(401, " 权限错误 "), SERVICE_RROE(500, "  服务器错误 "),
-        QUERY_FAILURE(0000, " 未查询到数据 ");
+        QUERY_FAILURE(000, " 未查询到数据 ");
 
         private ResultCode(Integer value, String message) {
             this.value = value;

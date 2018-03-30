@@ -62,32 +62,6 @@ public abstract class RConstant {
         }
     }
 
-    /**
-     * 性别
-     *
-     * @author lz
-     * @date 2018-3-24
-     */
-    public static enum Sex {
-        MAN("1", "男"), FEMAN("2", "女");
-
-        private final String value;
-        private final String name;
-
-        private Sex(String value, String name) {
-            this.value = value;
-            this.name = name;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-
 
     //test run
     public static void main(String[] args) {

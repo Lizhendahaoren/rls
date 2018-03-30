@@ -1,5 +1,6 @@
 package com.rls.sys.common;
 
+import com.rls.base.common.entity.RBaseEntity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,0 +1,14 @@
+# 生产
+spring:
+    profiles: dev
+    application:
+    name: hww-sys-web-admin
+    datasource:
+         driver-class-name: com.mysql.jdbc.Driver
+         url: jdbc:mysql://localhost:3306/rls
+         username: root
+         password: zl521131
+    jpa:
+        hibernate:
+             ddl.auto: create-drop  #其主要作用是：自动创建、更新、验证数据库表结构。create update validate create-drop
+        show-sql: true

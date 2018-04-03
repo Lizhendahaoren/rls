@@ -1,0 +1,15 @@
+server:
+  port: 80
+  session:
+   timeout:1800
+spring:
+  profiles:
+       active: dev
+  application:
+    name: rls-sys-common-service
+tomcat:
+      uri-encoding: UTF-8
+      max-threads: 800
+      max-connections: 800
+      context-path: /sys
+

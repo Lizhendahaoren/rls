@@ -1,5 +1,7 @@
 package com.rls.base.common.vo;
 
+import com.rls.base.common.annotation.RDescription;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,7 @@ import java.io.Serializable;
  * @date ：2018/3/24 14:17
  */
 public class RBaseVo implements Serializable {
+
 
 
 }

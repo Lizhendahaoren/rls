@@ -1,7 +1,6 @@
 package com.rls.base.common.entity;
 
 import com.rls.base.common.annotation.RDescription;
-import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.io.Serializable;

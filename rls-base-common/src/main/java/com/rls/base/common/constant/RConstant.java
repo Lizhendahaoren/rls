@@ -1,6 +1,8 @@
 package com.rls.base.common.constant;
 
 
+import com.rls.base.common.annotation.RDescription;
+
 /**
  * @author ：lz
  * @version ： 1.0
@@ -16,6 +18,7 @@ public abstract class RConstant {
      * @date 2018-3-24
      */
     public static enum Status {
+
         ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(9);
 
         private Status(Integer value) {

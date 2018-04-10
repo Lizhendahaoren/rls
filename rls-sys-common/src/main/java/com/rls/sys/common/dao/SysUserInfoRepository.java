@@ -2,6 +2,7 @@ package com.rls.sys.common.dao;
 
 import com.rls.base.common.dao.RBaseRepository;
 import com.rls.sys.common.entity.SysUserInfo;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author ：lz
@@ -10,5 +11,7 @@ import com.rls.sys.common.entity.SysUserInfo;
  * @Description : SysUserInfo
  * @date ：2018/4/10 14:58
  */
+
+@Repository
 public interface SysUserInfoRepository extends RBaseRepository<SysUserInfo> {
 }

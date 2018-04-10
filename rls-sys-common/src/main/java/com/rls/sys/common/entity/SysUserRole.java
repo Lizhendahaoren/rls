@@ -4,8 +4,11 @@ import com.rls.base.common.entity.RBaseEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -18,5 +21,30 @@ import java.io.Serializable;
 @Entity
 @Table(name = "rls_sys_user_role")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@MappedSuperclass
 public class SysUserRole extends RBaseEntity implements Serializable {
+
+    @NotNull(message = "用户id不能为空")
+    private Long sysUserId;
+
+    @NotNull(message = "角色id不能为空")
+    private Long sysRoleId;
+
+    @Column(name = "sysUserId")
+    public Long getSysUserId() {
+        return sysUserId;
+    }
+
+    public void setSysUserId(Long sysUserId) {
+        this.sysUserId = sysUserId;
+    }
+
+    @Column(name = "sysRoleId")
+    public Long getSysRoleId() {
+        return sysRoleId;
+    }
+
+    public void setSysRoleId(Long sysRoleId) {
+        this.sysRoleId = sysRoleId;
+    }
 }

@@ -4,10 +4,9 @@ import com.rls.base.common.annotation.RDescription;
 import com.rls.base.common.entity.RBaseEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.annotations.Target;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -21,7 +20,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "rls_sys_permission")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class SysPermission extends RBaseEntity implements Serializable{
+@MappedSuperclass
+public class SysPermission extends RBaseEntity implements Serializable {
 
     @NotNull(message = "资源名称不能为空")
     @org.hibernate.validator.constraints.Length(min = 0, max = 100, message = "资源长度不能大于100")
@@ -34,8 +34,8 @@ public class SysPermission extends RBaseEntity implements Serializable{
     @RDescription("排列顺序:用户菜单上下排序")
     private int orderNum;
 
-    @javax.validation.constraints.NotNull(message="所属应用不能为空")
-    private Long appKey;
+    @javax.validation.constraints.NotNull(message = "所属应用不能为空")
+    private Long appKeyId;
 
     @NotNull(message = "显示类型不能为空")
     @RDescription("0: 页面级别 1：按钮级别  2:菜单级")
@@ -44,7 +44,7 @@ public class SysPermission extends RBaseEntity implements Serializable{
     @NotNull(message = "上级模块不能为空")
     private Long parentId;
 
-    @Column(name = "resourceName", length = 30, columnDefinition = "资源名称")
+    @Column(name = "resourceName", length = 30, nullable = false)
     public String getResourceName() {
         return resourceName;
     }
@@ -53,7 +53,7 @@ public class SysPermission extends RBaseEntity implements Serializable{
         this.resourceName = resourceName;
     }
 
-    @Column(name = "resourceUrl", length = 60, columnDefinition = "资源地址")
+    @Column(name = "resourceUrl", length = 60, nullable = false)
     public String getResourceUrl() {
         return resourceUrl;
     }
@@ -62,7 +62,7 @@ public class SysPermission extends RBaseEntity implements Serializable{
         this.resourceUrl = resourceUrl;
     }
 
-    @Column(name = "orderNum", length = 20 , columnDefinition = "排序")
+    @Column(name = "orderNum", length = 20, columnDefinition = "INT default 0")
     public int getOrderNum() {
         return orderNum;
     }
@@ -71,16 +71,16 @@ public class SysPermission extends RBaseEntity implements Serializable{
         this.orderNum = orderNum;
     }
 
-    @Column(name = "appKey", length = 20, columnDefinition = "所属应用")
-    public Long getAppKey() {
-        return appKey;
+    @Column(name = "appKey", length = 20, nullable = false)
+    public Long getAppKeyId() {
+        return appKeyId;
     }
 
-    public void setAppKey(Long appKey) {
-        this.appKey = appKey;
+    public void setAppKeyId(Long appKeyId) {
+        this.appKeyId = appKeyId;
     }
 
-    @Column(name = "showType", length = 5, columnDefinition = "资源类型")
+    @Column(name = "showType", length = 5, nullable = false, columnDefinition = "INT default 0")
     public int getShowType() {
         return showType;
     }

@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 /**
@@ -16,8 +17,9 @@ import javax.persistence.Table;
  * @date ：2018/4/9 18:07
  */
 @Entity
-@Table(name = "rls_sys_user")
+@Table(name = "rls_sys_user_info")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@MappedSuperclass
 public class SysUserInfo extends RBaseEntity implements java.io.Serializable{
 
     @org.hibernate.validator.constraints.Length(min = 0, max = 10, message = "姓名长度不能大于10")
@@ -35,7 +37,7 @@ public class SysUserInfo extends RBaseEntity implements java.io.Serializable{
     @org.hibernate.validator.constraints.Length(min = 0, max = 15, message = "qq长度不能大于15")
     private String qqNum;
 
-    @Column(name = "name", length = 10, columnDefinition = "姓名")
+    @Column(name = "name", length = 10)
     public String getName() {
         return name;
     }
@@ -44,7 +46,7 @@ public class SysUserInfo extends RBaseEntity implements java.io.Serializable{
         this.name = name;
     }
 
-    @Column(name = "phone", length = 11, columnDefinition = "手机号")
+    @Column(name = "phone", length = 11)
     public String getPhone() {
         return phone;
     }
@@ -53,7 +55,7 @@ public class SysUserInfo extends RBaseEntity implements java.io.Serializable{
         this.phone = phone;
     }
 
-    @Column(name = "email", length = 50, columnDefinition = "email")
+    @Column(name = "email", length = 50)
     public String getEmail() {
         return email;
     }
@@ -62,7 +64,7 @@ public class SysUserInfo extends RBaseEntity implements java.io.Serializable{
         this.email = email;
     }
 
-    @Column(name = "weichat", length = 30, columnDefinition = "微信")
+    @Column(name = "weichat", length = 30)
     public String getWeichat() {
         return weichat;
     }
@@ -71,7 +73,7 @@ public class SysUserInfo extends RBaseEntity implements java.io.Serializable{
         this.weichat = weichat;
     }
 
-    @Column(name = "qqNum", length = 15, columnDefinition = "qq")
+    @Column(name = "qqNum", length = 15)
     public String getQqNum() {
         return qqNum;
     }

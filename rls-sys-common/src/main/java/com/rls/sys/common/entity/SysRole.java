@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +20,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "rls_sys_role")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@MappedSuperclass
 public class SysRole extends RBaseEntity implements java.io.Serializable{
 
     @NotNull(message="角色id不能为空")
@@ -32,9 +34,9 @@ public class SysRole extends RBaseEntity implements java.io.Serializable{
     private String roleDesc;
 
     @javax.validation.constraints.NotNull(message="所属应用不能为空")
-    private Long appKey;
+    private Long appKeyId;
 
-    @Column(name = "roleId", columnDefinition = "角色id")
+    @Column(name = "roleId", nullable = false)
     public Long getRoleId() {
         return roleId;
     }
@@ -43,7 +45,7 @@ public class SysRole extends RBaseEntity implements java.io.Serializable{
         this.roleId = roleId;
     }
 
-    @Column(name = "roleName", length = 10, columnDefinition = "角色名称")
+    @Column(name = "roleName", length = 10, nullable = false)
     public String getRoleName() {
         return roleName;
     }
@@ -52,7 +54,7 @@ public class SysRole extends RBaseEntity implements java.io.Serializable{
         this.roleName = roleName;
     }
 
-    @Column(name = "roleDesc", length = 100, columnDefinition = "角色描述")
+    @Column(name = "roleDesc", length = 100)
     public String getRoleDesc() {
         return roleDesc;
     }
@@ -61,12 +63,12 @@ public class SysRole extends RBaseEntity implements java.io.Serializable{
         this.roleDesc = roleDesc;
     }
 
-    @Column(name = "appKey", columnDefinition = "所属应用id")
-    public Long getAppKey() {
-        return appKey;
+    @Column(name = "appKeyId", nullable = false)
+    public Long getAppKeyId() {
+        return appKeyId;
     }
 
-    public void setAppKey(Long appKey) {
-        this.appKey = appKey;
+    public void setAppKeyId(Long appKeyId) {
+        this.appKeyId = appKeyId;
     }
 }

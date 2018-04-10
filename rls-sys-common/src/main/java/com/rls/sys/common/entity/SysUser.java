@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 /**
@@ -18,6 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "rls_sys_user")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+@MappedSuperclass
 public class SysUser extends RBaseEntity implements java.io.Serializable{
 
     @javax.validation.constraints.NotNull(message = "用户名不能为空")
@@ -40,7 +42,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
     @org.hibernate.validator.constraints.Length(min = 0, max = 100, message = "描述长度不能大于100")
     private java.lang.String description;
 
-    @Column(name = "userName", length = 15, columnDefinition = "用户名")
+    @Column(name = "userName", length = 15, nullable = false)
     public String getUserName() {
         return userName;
     }
@@ -49,7 +51,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
         this.userName = userName;
     }
 
-    @Column(name = "password", length = 30, columnDefinition = "用户密码")
+    @Column(name = "password", length = 30, nullable = false)
     public String getPassWord() {
         return passWord;
     }
@@ -58,7 +60,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
         this.passWord = passWord;
     }
 
-    @Column(name = "salt", length = 60, columnDefinition = "盐值")
+    @Column(name = "salt", length = 60)
     public String getSalt() {
         return salt;
     }
@@ -67,7 +69,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
         this.salt = salt;
     }
 
-    @Column(name = "openId", length = 20, columnDefinition = "openId")
+    @Column(name = "openId", length = 20)
     public String getOpenId() {
         return openId;
     }
@@ -76,7 +78,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
         this.openId = openId;
     }
 
-    @Column(name = "defaultRole", columnDefinition = "默认角色")
+    @Column(name = "defaultRole", nullable = false)
     public Long getDefaultRole() {
         return defaultRole;
     }
@@ -85,7 +87,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
         this.defaultRole = defaultRole;
     }
 
-    @Column(name = "description", length = 100, columnDefinition = "描述")
+    @Column(name = "description", length = 100)
     public String getDescription() {
         return description;
     }

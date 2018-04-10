@@ -2,6 +2,7 @@ package com.rls.sys.common.manager;
 
 import com.rls.base.common.manager.RbaseManager;
 import com.rls.sys.common.entity.SysPermission;
+import org.springframework.stereotype.Service;
 
 /**
  * @author ：lz
@@ -10,5 +11,6 @@ import com.rls.sys.common.entity.SysPermission;
  * @Description : SysPermission
  * @date ：2018/4/10 15:11
  */
+@Service
 public interface SysPermissionMng extends RbaseManager<SysPermission> {
 }

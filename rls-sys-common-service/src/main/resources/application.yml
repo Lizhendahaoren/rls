@@ -39,7 +39,18 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/rls?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=true&autoReconnect=true&zeroDateTimeBehavior=convertToNull # JDBC url of the database.
     username: root
     password: zl521131
-    # druid: 连接池
+    druid:                   #连接池
+        initial-size: 5     #初始化  5
+        max-active: 20      #最大
+        min-idle: 1         #最小
+        max-wait: 60000     # 配置获取连接等待超时的时间
+        pool-prepared-statements: false
+        max-pool-prepared-statement-per-connection-size: 20
+        test-on-borrow: false
+        test-on-return: false
+        test-while-idle: true
+        min-evictable-idle-time-millis: 60000
+        max-evictable-idle-time-millis: 300000
 
 
 #  日志配置

@@ -1,12 +1,15 @@
 # rls
 rls  ：记录分享美好生活
    # 技术选定
-       / java               8 
-	   /spring boot        2.0.0 RELEASE  
-	   /spring data jpa   -
-	   /spring security  -
-	   /spring        5.0
-	   /mysql       5.7
+       / java              1.8 
+	   /spring boot        1.5.9 RELEASE  
+	   /spring data jpa    2.0.0 RELEASE 
+	   /spring security    2.0.0 RELEASE
+	   /spring cache       2.0.0 RELEASE
+	   /spring data redis  2.0.0 RELEASE
+	   /spring             5.0
+	   /mysql              5.7
+	   /druid              1.1.6
 	   
 # 结构   
      

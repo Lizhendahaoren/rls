@@ -1,6 +1,12 @@
 #  服务配置
 server :
   port : 80
+  context-path: /sys  #项目contextPath
+  session-timeout: 60  #ession最大超时时间(分钟)，默认为30
+  tomcat:
+      max-threads: 100     # tomcat最大线程数，默认为200
+  tomcat:
+      uri-encoding: UTF-8  # tomcat的URI编码
 
 # spring配置
 spring:
@@ -33,11 +39,12 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/rls?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=true&autoReconnect=true&zeroDateTimeBehavior=convertToNull # JDBC url of the database.
     username: root
     password: zl521131
+    # druid: 连接池
 
 
 #  日志配置
 logging:
-  file: logs/rls-sys--service.log
+  file: logs/rls-sys-service.log
   level:
     com.rls.sys: debug
 

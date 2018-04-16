@@ -18,7 +18,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "rls_sys_user")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class SysUser extends RBaseEntity implements java.io.Serializable{
 
     @javax.validation.constraints.NotNull(message = "用户名不能为空")

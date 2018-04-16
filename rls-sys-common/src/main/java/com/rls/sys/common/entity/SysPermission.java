@@ -19,7 +19,6 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "rls_sys_permission")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class SysPermission extends RBaseEntity implements Serializable {
 
     @NotNull(message = "资源名称不能为空")
@@ -52,7 +51,7 @@ public class SysPermission extends RBaseEntity implements Serializable {
         this.resourceName = resourceName;
     }
 
-    @Column(name = "resourceUrl", length = 60, nullable = false)
+    @Column(name = "resourceUrl", length =100, nullable = false)
     public String getResourceUrl() {
         return resourceUrl;
     }
@@ -88,7 +87,7 @@ public class SysPermission extends RBaseEntity implements Serializable {
         this.showType = showType;
     }
 
-    @Column(name = "parentId", columnDefinition = "上级菜单")
+    @Column(name = "parentId")
     public Long getParentId() {
         return parentId;
     }

@@ -18,7 +18,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "rls_sys_user_info")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class SysUserInfo extends RBaseEntity implements java.io.Serializable{
 
     @org.hibernate.validator.constraints.Length(min = 0, max = 10, message = "姓名长度不能大于10")

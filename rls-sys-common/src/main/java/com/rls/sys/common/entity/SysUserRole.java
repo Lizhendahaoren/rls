@@ -20,7 +20,6 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "rls_sys_user_role")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class SysUserRole extends RBaseEntity implements Serializable {
 
     @NotNull(message = "用户id不能为空")

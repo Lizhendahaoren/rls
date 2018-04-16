@@ -19,7 +19,6 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "rls_sys_role")
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class SysRole extends RBaseEntity implements java.io.Serializable{
 
     @NotNull(message="角色id不能为空")

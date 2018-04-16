@@ -2,6 +2,7 @@ package com.rls.base.common.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.Repository;
 
@@ -13,6 +14,7 @@ import org.springframework.data.repository.Repository;
  * @Description : ${todo}
  * @date ：2018/3/25 17:56
  */
+@NoRepositoryBean
 public interface RBaseRepository<T> extends JpaRepository<T, Long>,
         JpaSpecificationExecutor<T>{
 

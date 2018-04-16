@@ -23,6 +23,7 @@ public  abstract class RBaseEntity implements Serializable {
 
     @RDescription(value = "状态", description = "状态请参考常量定义")
     @NotNull(message = "状态不能为空")
+    @org.hibernate.validator.constraints.Length(min = 0, max = 3, message = "状态长度不能大于20")
     protected Integer status;
 
     @RDescription(value = "版本", description = "hibernate维护")
@@ -57,7 +58,7 @@ public  abstract class RBaseEntity implements Serializable {
 
 
     @RDescription(value = "状态", description = "确保赋值增加默认值1:正常")
-    @Column(nullable = false, length = 5,columnDefinition = "int default 1")
+    @Column(nullable = false, length = 3,columnDefinition = "int default 1")
     public Integer getStatus() {
         return status;
     }

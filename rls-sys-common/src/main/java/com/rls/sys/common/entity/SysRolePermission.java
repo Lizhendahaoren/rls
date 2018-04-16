@@ -21,7 +21,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "rls_sys_role_permission")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@MappedSuperclass
 public class SysRolePermission extends RBaseEntity implements Serializable {
 
     @NotNull(message = "角色id不能为空")

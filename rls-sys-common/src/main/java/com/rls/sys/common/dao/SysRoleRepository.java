@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
  * @Description : SysRole
  * @date ：2018/4/10 14:57
  */
-
 @Repository
 public interface SysRoleRepository extends RBaseRepository<SysRole> {
 }

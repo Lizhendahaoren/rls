@@ -20,7 +20,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "rls_sys_permission")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@MappedSuperclass
 public class SysPermission extends RBaseEntity implements Serializable {
 
     @NotNull(message = "资源名称不能为空")

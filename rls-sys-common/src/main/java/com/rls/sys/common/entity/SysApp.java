@@ -20,7 +20,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "rls_sys_app")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-@MappedSuperclass
 public class SysApp extends RBaseEntity implements Serializable {
 
     @org.hibernate.validator.constraints.Length(min = 0, max = 20, message = "应用名称长度不能大于20")

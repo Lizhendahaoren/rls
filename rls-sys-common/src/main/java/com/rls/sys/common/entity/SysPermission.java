@@ -21,78 +21,66 @@ import java.io.Serializable;
 @Table(name = "rls_sys_permission")
 public class SysPermission extends RBaseEntity implements Serializable {
 
-    @NotNull(message = "资源名称不能为空")
-    @org.hibernate.validator.constraints.Length(min = 0, max = 100, message = "资源长度不能大于100")
-    private String resourceName;
+    @javax.validation.constraints.NotBlank(message="权限编码不能为空")
+    @org.hibernate.validator.constraints.Length(min=1,max=200,message="权限编码长度不能大于60字符")
+    private java.lang.String permissionCode;
 
-    @org.hibernate.validator.constraints.Length(min = 0, max = 100, message = "资源地址长度不能大于100")
-    @NotNull(message = "资源路径不能为空")
-    private String resourceUrl;
+    @javax.validation.constraints.NotNull(message="所属应用不能为空")
+    private java.lang.String appKeyId;
 
-    @RDescription("排列顺序:用户菜单上下排序")
-    private int orderNum;
+    @javax.validation.constraints.NotBlank(message="权限名称不能为空")
+    @org.hibernate.validator.constraints.Length(min=1,max=40,message="权限名称长度不能大于40字符")
+    private java.lang.String permissionName;
 
-    @javax.validation.constraints.NotNull(message = "所属应用不能为空")
-    private Long appKeyId;
+    @javax.validation.constraints.NotBlank(message="权限URL不能为空")
+    @org.hibernate.validator.constraints.Length(min=1,max=255,message="权限URL长度不能大于255字符")
+    private java.lang.String permissionUrl;
 
-    @NotNull(message = "显示类型不能为空")
-    @RDescription("0: 页面级别 1：按钮级别  2:菜单级")
-    private int showType;
+    @org.hibernate.validator.constraints.Length(min=1,max=50,message="权限描述不能超过50字符")
+    private java.lang.String description;
 
-    @NotNull(message = "上级模块不能为空")
-    private Long parentId;
-
-    @Column(name = "resourceName", length = 30, nullable = false)
-    public String getResourceName() {
-        return resourceName;
+    @Column(name = "permissionCode", length = 200, nullable = false)
+    public String getPermissionCode() {
+        return permissionCode;
     }
 
-    public void setResourceName(String resourceName) {
-        this.resourceName = resourceName;
+    public void setPermissionCode(String permissionCode) {
+        this.permissionCode = permissionCode;
     }
 
-    @Column(name = "resourceUrl", length =100, nullable = false)
-    public String getResourceUrl() {
-        return resourceUrl;
-    }
-
-    public void setResourceUrl(String resourceUrl) {
-        this.resourceUrl = resourceUrl;
-    }
-
-    @Column(name = "orderNum", length = 20, columnDefinition = "INT default 0")
-    public int getOrderNum() {
-        return orderNum;
-    }
-
-    public void setOrderNum(int orderNum) {
-        this.orderNum = orderNum;
-    }
-
-    @Column(name = "appKey", length = 20, nullable = false)
-    public Long getAppKeyId() {
+    @Column(name = "appKeyId", nullable = false)
+    public String getAppKeyId() {
         return appKeyId;
     }
 
-    public void setAppKeyId(Long appKeyId) {
+    public void setAppKeyId(String appKeyId) {
         this.appKeyId = appKeyId;
     }
 
-    @Column(name = "showType", length = 5, nullable = false, columnDefinition = "INT default 0")
-    public int getShowType() {
-        return showType;
+    @Column(name = "permissionName", length = 40, nullable = false)
+    public String getPermissionName() {
+        return permissionName;
     }
 
-    public void setShowType(int showType) {
-        this.showType = showType;
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
     }
 
-    @Column(name = "parentId")
-    public Long getParentId() {
-        return parentId;
+    @Column(name = "permissionUrl", length = 255, nullable = false)
+    public String getPermissionUrl() {
+        return permissionUrl;
     }
 
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
+    public void setPermissionUrl(String permissionUrl) {
+        this.permissionUrl = permissionUrl;
+    }
+
+    @Column(name = "description", length = 50)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

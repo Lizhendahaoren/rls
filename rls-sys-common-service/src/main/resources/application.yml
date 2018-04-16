@@ -8,8 +8,24 @@ spring:
     active: dev
   application:
     name: rls-sys-common-service
+  data:
+    jpa:
+      repositories:
+        enabled: true
   resources:
     cache-period: 10000
+  jpa:
+    open-in-view: true
+    show-sql: true    #显示执行sql
+    generate-ddl: false
+    database: mysql
+    hibernate:
+      ddl-auto: update    #生成表策略
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy  #表/字段的命名映射策略
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.MySQL5InnoDBDialect   #数据库方言  mysql 5.7 使用这个
  # 数据源配置
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -17,11 +33,7 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/rls?useUnicode=true&serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=true&autoReconnect=true&zeroDateTimeBehavior=convertToNull # JDBC url of the database.
     username: root
     password: zl521131
-  jpa:
-    database: mysql
-    hibernate:
-      ddl.auto: create  #创建表方式
-    show-sql: true
+
 
 #  日志配置
 logging:

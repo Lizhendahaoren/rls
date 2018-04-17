@@ -18,7 +18,6 @@ import java.util.Map;
 public class RJsonUtil {
 
     //Bean对象转JSON
-    @RDescription()
     public static String toJson(Object object, String dataFormatString) {
         if (object != null) {
             if (RStringUtil.isEmpty(dataFormatString)) {

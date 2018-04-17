@@ -47,12 +47,12 @@ public class MyUserDetailsService implements UserDetailsService {
         MyUserDetails myUserDetails = new MyUserDetails();
         // 根据userName查找用户信息
         try {
-            SysUser user = null; //sysUserMng.findByUserName(userName, 1);
+            SysUser user = sysUserMng.findByUserName(userName, 1);
             if(Objects.isNull(user)){// 没有这个用户直接返回
                 return myUserDetails; //throw new Exception("登录失败：未找到用户信息");
             }
             // 存在这个用户时，找出该用户的权限
-            List<String> rList = null; //sysResourceMng.findRoleNameByUserName(userName);
+            List<String> rList = sysResourceMng.findRoleNameByUserName(userName);
             // 用户名密码
             myUserDetails.setUsername(user.getUserName());
             myUserDetails.setPassword(user.getPassWord());

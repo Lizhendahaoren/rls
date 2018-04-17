@@ -17,4 +17,12 @@
 	<name>rls-base-util</name>
 	<description>rls-base-util</description>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.rls.base</groupId>
+			<artifactId>rls-base-common</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
 </project>

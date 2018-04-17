@@ -1,6 +1,7 @@
 package com.rls.sys.common.manager;
 
 import com.rls.base.common.annotation.RDescription;
+import com.rls.base.common.annotation.RImportant;
 import com.rls.base.common.manager.RbaseManager;
 import com.rls.sys.common.entity.SysUser;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,6 @@ import org.springframework.stereotype.Service;
 public interface SysUserMng extends RbaseManager<SysUser> {
 
     @RDescription("根据用户名查找用户信息")
-    SysUser findByUserName(String userName, int status);
+    @RImportant
+    SysUser findByUserName(String userName, Integer status);
 }

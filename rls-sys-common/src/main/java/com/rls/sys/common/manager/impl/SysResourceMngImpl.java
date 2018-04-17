@@ -74,8 +74,4 @@ public class SysResourceMngImpl implements SysResourceMng {
 
     }
 
-    @Override
-    public List<String> findRoleNameByUserName(String userName) {
-        return null;
-    }
 }

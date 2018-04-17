@@ -1,7 +1,10 @@
 package com.rls.sys.common.manager.impl;
 
+import com.rls.sys.common.dao.SysUserRoleRepository;
 import com.rls.sys.common.entity.SysUserRole;
 import com.rls.sys.common.manager.SysUserRoleMng;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -13,6 +16,12 @@ import java.util.List;
  * @date ：2018/4/10 15:33
  */
 public class SysUserRoleMngImpl implements SysUserRoleMng {
+
+    @Autowired
+    private SysUserRoleRepository sysUserRoleRepository;
+
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SysUserRoleMngImpl.class);
+
     @Override
     public SysUserRole selectOne(SysUserRole entity) {
         return null;
@@ -66,5 +75,10 @@ public class SysUserRoleMngImpl implements SysUserRoleMng {
     @Override
     public void updateSelectiveById(SysUserRole entity) {
 
+    }
+
+    @Override
+    public List<String> findRoleNameByUserName(String userName) {
+        return sysUserRoleRepository.findRoleNameByUserName(userName);
     }
 }

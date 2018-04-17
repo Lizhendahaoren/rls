@@ -43,7 +43,7 @@ public class SysRole extends RBaseEntity implements java.io.Serializable{
         this.roleId = roleId;
     }
 
-    @Column(name = "roleName", length = 10, nullable = false)
+    @Column(name = "roleName", length = 10, nullable = false, unique = true)
     public String getRoleName() {
         return roleName;
     }

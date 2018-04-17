@@ -1,8 +1,12 @@
 package com.rls.sys.common.manager;
 
+import com.rls.base.common.annotation.RDescription;
+import com.rls.base.common.annotation.RImportant;
 import com.rls.base.common.manager.RbaseManager;
 import com.rls.sys.common.entity.SysUserRole;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author ：lz
@@ -13,4 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface SysUserRoleMng extends RbaseManager<SysUserRole> {
+    @RDescription("根据用户名查找角色名")
+    @RImportant
+    List<String> findRoleNameByUserName(String userName);
 }

@@ -1,7 +1,10 @@
 package com.rls.sys.common.manager.impl;
 
+import com.rls.sys.common.dao.SysUserRepository;
 import com.rls.sys.common.entity.SysUser;
 import com.rls.sys.common.manager.SysUserMng;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -13,6 +16,13 @@ import java.util.List;
  * @date ：2018/4/10 15:33
  */
 public class SysUserMngImpl implements SysUserMng {
+
+    @Autowired
+    private SysUserRepository sysUserRepository;
+
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SysUserMngImpl.class);
+
+
     @Override
     public SysUser selectOne(SysUser entity) {
         return null;
@@ -66,5 +76,10 @@ public class SysUserMngImpl implements SysUserMng {
     @Override
     public void updateSelectiveById(SysUser entity) {
 
+    }
+
+    @Override
+    public SysUser findByUserName(String userName, int status) {
+        return sysUserRepository.findByUserName(userName, status);
     }
 }

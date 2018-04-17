@@ -5,6 +5,7 @@ import com.rls.base.common.dao.RBaseRepository;
 import com.rls.base.common.manager.RbaseManager;
 import com.rls.sys.common.entity.SysLoginLog;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 /**
  * @author ：lz
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Repository;
  * @Description : SysApp
  * @date ：2018/4/9 22:42
  */
-@Repository
+@Service
 public interface SysLoginLogMng extends RbaseManager<SysLoginLog> {
 
 

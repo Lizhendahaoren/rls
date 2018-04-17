@@ -73,4 +73,9 @@ public class SysResourceMngImpl implements SysResourceMng {
     public void updateSelectiveById(SysResource entity) {
 
     }
+
+    @Override
+    public List<String> findRoleNameByUserName(String userName) {
+        return null;
+    }
 }

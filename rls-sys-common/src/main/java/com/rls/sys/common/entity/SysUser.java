@@ -40,7 +40,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
     @org.hibernate.validator.constraints.Length(min = 0, max = 100, message = "描述长度不能大于100")
     private java.lang.String description;
 
-    @Column(name = "userName", length = 15, nullable = false)
+    @Column(name = "userName", length = 15, nullable = false, unique = true)
     public String getUserName() {
         return userName;
     }
@@ -67,7 +67,7 @@ public class SysUser extends RBaseEntity implements java.io.Serializable{
         this.salt = salt;
     }
 
-    @Column(name = "openId", length = 20)
+    @Column(name = "openId", length = 20, unique = true)
     public String getOpenId() {
         return openId;
     }

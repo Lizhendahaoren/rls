@@ -1,7 +1,9 @@
 package com.rls.sys.common.manager.impl;
 
+import com.rls.sys.common.dao.SysPermissionRepository;
 import com.rls.sys.common.entity.SysPermission;
 import com.rls.sys.common.manager.SysPermissionMng;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,10 @@ import java.util.List;
  */
 @Service
 public class SysPermissionMngImpl implements SysPermissionMng{
+
+    @Autowired
+    private SysPermissionRepository sysPermissionRepository;
+
     @Override
     public SysPermission selectOne(SysPermission entity) {
         return null;
@@ -32,7 +38,7 @@ public class SysPermissionMngImpl implements SysPermissionMng{
 
     @Override
     public List<SysPermission> selectListAll() {
-        return null;
+        return sysPermissionRepository.findAll();
     }
 
     @Override

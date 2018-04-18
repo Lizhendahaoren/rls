@@ -39,7 +39,7 @@ public class SysPermission extends RBaseEntity implements Serializable {
     @org.hibernate.validator.constraints.Length(min=1,max=50,message="权限描述不能超过50字符")
     private java.lang.String description;
 
-    @Column(name = "permissionCode", length = 200, nullable = false)
+    @Column(name = "permissionCode", length = 200, nullable = false, unique = true)
     public String getPermissionCode() {
         return permissionCode;
     }

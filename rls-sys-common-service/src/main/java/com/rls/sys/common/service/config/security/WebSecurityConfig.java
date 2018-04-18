@@ -29,16 +29,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private MySecurityFilter mySecurityFilter;
 
+    //@Autowired
+    //private MyAuthenticationProvider provider;//自定义验证
+
     @Autowired
-    private MyAuthenticationProvider provider;//自定义验证
+    MyAccessDecisionManager myAccessDecisionManager;
 
     @Autowired
     private MyUserDetailsService userDetailsService;//自定义用户服务
 
-
     @Bean
-    MyUserDetailsService myUserDetailsService(){ //注册UserDetailsService 的bean
-        return new MyUserDetailsService();
+    @Override
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
     }
 
     //Request层面的配置，对应XML Configuration中的<http>元素
@@ -73,11 +76,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
-    @Autowired
+/*    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         //将验证过程交给自定义验证工具
         auth.authenticationProvider(provider);
-    }
+    }*/
 
 
 }

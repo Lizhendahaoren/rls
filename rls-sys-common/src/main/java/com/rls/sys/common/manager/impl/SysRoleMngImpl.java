@@ -2,6 +2,7 @@ package com.rls.sys.common.manager.impl;
 
 import com.rls.sys.common.entity.SysRole;
 import com.rls.sys.common.manager.SysRoleMng;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @Description : MngImpl
  * @date ：2018/4/10 15:08
  */
+@Service
 public class SysRoleMngImpl implements SysRoleMng {
 
     @Override

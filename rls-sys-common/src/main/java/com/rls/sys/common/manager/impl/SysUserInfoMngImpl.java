@@ -2,6 +2,7 @@ package com.rls.sys.common.manager.impl;
 
 import com.rls.sys.common.entity.SysUserInfo;
 import com.rls.sys.common.manager.SysUserInfoMng;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @Description : SysUserInfoMngImpl
  * @date ：2018/4/10 15:33
  */
+@Service
 public class SysUserInfoMngImpl implements SysUserInfoMng{
     @Override
     public SysUserInfo selectOne(SysUserInfo entity) {

@@ -5,6 +5,7 @@ import com.rls.base.common.manager.RbaseManager;
 import com.rls.sys.common.entity.SysLoginLog;
 import com.rls.sys.common.manager.SysLoginLogMng;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ import java.util.List;
  * @Description : SysApp
  * @date ：2018/4/9 22:42
  */
-@Repository
+@Service
 public class SysLoginLogMngImpl implements SysLoginLogMng {
 
 

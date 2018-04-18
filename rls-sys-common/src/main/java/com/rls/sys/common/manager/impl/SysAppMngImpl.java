@@ -5,6 +5,7 @@ import com.rls.sys.common.entity.SysApp;
 import com.rls.sys.common.manager.SysAppMng;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @Description : SysAppMngImpl
  * @date ：2018/4/10 15:32
  */
+@Service
 public class SysAppMngImpl implements SysAppMng {
 
     @Autowired

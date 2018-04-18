@@ -5,6 +5,7 @@ import com.rls.sys.common.entity.SysUser;
 import com.rls.sys.common.manager.SysUserMng;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  * @Description : SysUserMngImpl
  * @date ：2018/4/10 15:33
  */
-@Transactional
+@Service
 public class SysUserMngImpl implements SysUserMng {
 
     @Autowired

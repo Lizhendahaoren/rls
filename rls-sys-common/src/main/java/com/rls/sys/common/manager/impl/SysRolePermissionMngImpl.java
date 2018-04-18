@@ -2,6 +2,7 @@ package com.rls.sys.common.manager.impl;
 
 import com.rls.sys.common.entity.SysRolePermission;
 import com.rls.sys.common.manager.SysRolePermissionMng;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @Description : SysRolePermissionMngImpl
  * @date ：2018/4/10 15:32
  */
+@Service
 public class SysRolePermissionMngImpl implements SysRolePermissionMng{
     @Override
     public SysRolePermission selectOne(SysRolePermission entity) {

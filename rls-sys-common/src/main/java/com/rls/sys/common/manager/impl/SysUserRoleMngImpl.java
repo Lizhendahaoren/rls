@@ -5,6 +5,7 @@ import com.rls.sys.common.entity.SysUserRole;
 import com.rls.sys.common.manager.SysUserRoleMng;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import java.util.List;
  * @Description : SysUserRoleMngImpl
  * @date ：2018/4/10 15:33
  */
+@Service
 public class SysUserRoleMngImpl implements SysUserRoleMng {
 
     @Autowired

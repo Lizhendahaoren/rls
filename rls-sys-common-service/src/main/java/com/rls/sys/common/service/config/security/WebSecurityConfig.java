@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 
 /**
  * @author ：lz
@@ -26,15 +27,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
+    private MySecurityFilter mySecurityFilter;
+
+    @Autowired
     private MyAuthenticationProvider provider;//自定义验证
 
     @Autowired
-    private UserDetailsService userDetailsService;//自定义用户服务
+    private MyUserDetailsService userDetailsService;//自定义用户服务
+
 
     @Bean
-    @Override
-    protected AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManager();
+    MyUserDetailsService myUserDetailsService(){ //注册UserDetailsService 的bean
+        return new MyUserDetailsService();
     }
 
     //Request层面的配置，对应XML Configuration中的<http>元素
@@ -53,7 +57,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutSuccessUrl("/home")//退出登录后的默认url是"/home"
                 .permitAll();
-
+        //注入权限信息
+        http.addFilterBefore(mySecurityFilter, FilterSecurityInterceptor.class);
     }
 
     // Web层面的配置，一般用来配置无需安全检查的路径

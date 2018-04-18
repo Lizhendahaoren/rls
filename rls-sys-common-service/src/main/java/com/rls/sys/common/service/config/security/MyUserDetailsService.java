@@ -1,9 +1,11 @@
 package com.rls.sys.common.service.config.security;
 
 
+import com.rls.sys.common.constant.SysConstant;
 import com.rls.sys.common.entity.SysUser;
 import com.rls.sys.common.manager.SysResourceMng;
 import com.rls.sys.common.manager.SysUserMng;
+import com.rls.sys.common.manager.SysUserRoleMng;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,15 +29,14 @@ import java.util.Objects;
  *                  UserDetails包括 用户名、密码、是否可用、是否过期等信息
  * @date ：2018/4/16 19:37
  */
-@Service
-@Transactional(readOnly = true)
+@Component
 public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
     private SysUserMng sysUserMng;
 
     @Autowired
-    private SysResourceMng sysResourceMng;
+    private SysUserRoleMng sysUserRoleMng;
 
     private static final org.slf4j.Logger logger = LoggerFactory.getLogger(MyUserDetailsService.class);
 
@@ -47,12 +48,12 @@ public class MyUserDetailsService implements UserDetailsService {
         MyUserDetails myUserDetails = new MyUserDetails();
         // 根据userName查找用户信息
         try {
-            SysUser user = sysUserMng.findByUserName(userName, 1);
+            SysUser user = sysUserMng.findByUserName(userName, SysConstant.Status.ONE.getValue());
             if(Objects.isNull(user)){// 没有这个用户直接返回
-                return myUserDetails; //throw new Exception("登录失败：未找到用户信息");
+                 throw new UsernameNotFoundException("UserName " + userName + " not found");   //throw new Exception("登录失败：未找到用户信息");
             }
             // 存在这个用户时，找出该用户的权限
-            List<String> rList = sysResourceMng.findRoleNameByUserName(userName);
+            List<String> rList = sysUserRoleMng.findRoleNameByUserName(userName);
             // 用户名密码
             myUserDetails.setUsername(user.getUserName());
             myUserDetails.setPassword(user.getPassWord());

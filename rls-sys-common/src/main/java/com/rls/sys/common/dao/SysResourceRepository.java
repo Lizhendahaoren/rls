@@ -23,6 +23,6 @@ public interface SysResourceRepository extends RBaseRepository<SysResource>{
 
     @RDescription("根据角色id查询资源list")
     @RImportant
-    @Query("from SysResource rs left join SysRoleResource srr on srr.sysResourceId = rs.is where  r.id = ?1")
+    @Query("from SysResource rs left join SysRoleResource srr on srr.sysResourceId = rs.id where  srr.sysRoleId = ?1")
     List<SysResource> selectListByRoleId(Long roleId);
 }

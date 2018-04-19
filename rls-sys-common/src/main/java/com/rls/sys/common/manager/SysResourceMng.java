@@ -21,4 +21,7 @@ import java.util.List;
 @Service
 public interface SysResourceMng extends RbaseManager<SysResource> {
 
+    @RDescription("根据角色id查询资源list")
+    @RImportant
+    List<SysResource> selectListByRoleId(Long roleId);
 }

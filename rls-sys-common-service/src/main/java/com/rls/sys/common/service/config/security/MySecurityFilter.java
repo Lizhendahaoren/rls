@@ -58,6 +58,7 @@ public class MySecurityFilter extends AbstractSecurityInterceptor implements Fil
         //fi里面有一个被拦截的url
         //里面调用MyInvocationSecurityMetadataSource的getAttributes(Object object)这个方法获取fi对应的所有权限
         //再调用MyAccessDecisionManager的decide方法来校验用户的权限是否足够
+        logger.info("-------invoke-------执行权限验证------------------");
         InterceptorStatusToken token = super.beforeInvocation(fi);
         try {
             //执行下一个拦截器

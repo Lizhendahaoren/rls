@@ -27,22 +27,14 @@ import org.springframework.security.web.access.intercept.FilterSecurityIntercept
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private MySecurityFilter mySecurityFilter;
-
-    //@Autowired
-    //private MyAuthenticationProvider provider;//自定义验证
+    private MySecurityFilter mySecurityFilter;//过滤器
 
     @Autowired
-    MyAccessDecisionManager myAccessDecisionManager;
+    MyAccessDecisionManager myAccessDecisionManager;//决策器
 
     @Autowired
     private MyUserDetailsService userDetailsService;//自定义用户服务
 
-    @Bean
-    @Override
-    protected AuthenticationManager authenticationManager() throws Exception {
-        return super.authenticationManager();
-    }
 
     //Request层面的配置，对应XML Configuration中的<http>元素
     @Override
@@ -60,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutSuccessUrl("/home")//退出登录后的默认url是"/home"
                 .permitAll();
-        //注入权限信息
+        //添加自定义权限过滤器
         http.addFilterBefore(mySecurityFilter, FilterSecurityInterceptor.class);
     }
 
@@ -75,12 +67,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
-
-/*    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        //将验证过程交给自定义验证工具
-        auth.authenticationProvider(provider);
-    }*/
-
 
 }

@@ -44,9 +44,6 @@ public class SysResource extends RBaseEntity implements Serializable {
     @NotNull(message = "上级模块不能为空")
     private Long parentId;
 
-    @javax.validation.constraints.NotNull(message="关联权限不能为空")
-    private java.lang.Long permissionId;
-
     @Column(name = "resourceName", length = 30, nullable = false)
     public String getResourceName() {
         return resourceName;
@@ -110,12 +107,4 @@ public class SysResource extends RBaseEntity implements Serializable {
         this.parentId = parentId;
     }
 
-    @Column(name = "permissionId", nullable = false)
-    public Long getPermissionId() {
-        return permissionId;
-    }
-
-    public void setPermissionId(Long permissionId) {
-        this.permissionId = permissionId;
-    }
 }

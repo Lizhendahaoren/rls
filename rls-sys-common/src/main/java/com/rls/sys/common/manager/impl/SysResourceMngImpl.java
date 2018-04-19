@@ -2,8 +2,10 @@ package com.rls.sys.common.manager.impl;
 
 
 import com.rls.base.common.manager.RbaseManager;
+import com.rls.sys.common.dao.SysResourceRepository;
 import com.rls.sys.common.entity.SysResource;
 import com.rls.sys.common.manager.SysResourceMng;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ import java.util.List;
 @Service
 public class SysResourceMngImpl implements SysResourceMng {
 
+    @Autowired
+    private SysResourceRepository sysResourceRepository;
 
     @Override
     public SysResource selectOne(SysResource entity) {
@@ -75,4 +79,8 @@ public class SysResourceMngImpl implements SysResourceMng {
 
     }
 
+    @Override
+    public List<SysResource> selectListByRoleId(Long roleId) {
+        return sysResourceRepository.selectListByRoleId(roleId);
+    }
 }

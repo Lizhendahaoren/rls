@@ -1,6 +1,7 @@
 package com.rls.sys.common.service.config.security;
 
 
+import com.google.common.collect.Lists;
 import com.rls.sys.common.constant.SysConstant;
 import com.rls.sys.common.entity.SysUser;
 import com.rls.sys.common.manager.SysResourceMng;
@@ -58,12 +59,11 @@ public class MyUserDetailsService implements UserDetailsService {
             myUserDetails.setUsername(user.getUserName());
             myUserDetails.setPassword(user.getPassWord());
             // 存放用户权限的信息
-            List<GrantedAuthority> authorities = new ArrayList<>();
-            for (String roleName : rList) {// 接收一个表示权限的字符串
-                GrantedAuthority authority = new SimpleGrantedAuthority(
-                        roleName);
+            List<GrantedAuthority> authorities = Lists.newArrayList();
+            rList.stream().forEach(v->{// 接收一个表示权限的字符串
+                GrantedAuthority authority = new SimpleGrantedAuthority(v);
                 authorities.add(authority);
-            }
+            });
             myUserDetails.setAuthorities(authorities);// 权限list的信息
         } catch (Exception e) {
             e.printStackTrace();

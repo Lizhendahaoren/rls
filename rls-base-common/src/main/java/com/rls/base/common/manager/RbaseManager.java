@@ -5,8 +5,8 @@ import java.util.List;
 /**
  * @author ：lz
  * @version ： 1.0
- * @Title: ${file_name}
- * @Description : ${todo}
+ * @Title:  封装dao 提供提供一系列增删改查方法统一访问
+ * @Description : Mng
  * @date ：2018/3/25 17:56
  */
 public interface RbaseManager<T> {
@@ -25,7 +25,7 @@ public interface RbaseManager<T> {
      * @param id
      * @return
      */
-    T selectById(Object id);
+    T selectById(Long id);
 
     /**
      * 查询列表

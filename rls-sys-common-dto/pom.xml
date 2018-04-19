@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>rls-sys-common-dto</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
 

@@ -19,14 +19,14 @@ import java.io.Serializable;
  * @date ：2018/4/9 18:11
  */
 @Entity
-@Table(name = "rls_sys_role_permission")
-public class SysRolePermission extends RBaseEntity implements Serializable {
+@Table(name = "rls_sys_role_resource")
+public class SysRoleResource extends RBaseEntity implements Serializable {
 
     @NotNull(message = "角色id不能为空")
     private Long sysRoleId;
 
     @NotNull(message = "资源id不能为空")
-    private Long sysPermissionId;
+    private Long sysResourceId;
 
     @Column(name = "sysRoleId")
     public Long getSysRoleId() {
@@ -37,12 +37,12 @@ public class SysRolePermission extends RBaseEntity implements Serializable {
         this.sysRoleId = sysRoleId;
     }
 
-    @Column(name = "sysPermissionId")
-    public Long getSysPermissionId() {
-        return sysPermissionId;
+    @Column(name = "sysResourceId")
+    public Long getSysResourceId() {
+        return sysResourceId;
     }
 
-    public void setSysPermissionId(Long sysPermissionId) {
-        this.sysPermissionId = sysPermissionId;
+    public void setSysResourceId(Long sysResourceId) {
+        this.sysResourceId = sysResourceId;
     }
 }

@@ -17,11 +17,9 @@ public class MyUserDetails implements UserDetails {
 	@RDescription("当前用户角色信息")
 	private List<GrantedAuthority> authorities;
 
-	private String password;
-
 	private String username;
 
-
+	private String password;
 
 	@RDescription("账户是否过期")
 	private boolean accountNonExpired;

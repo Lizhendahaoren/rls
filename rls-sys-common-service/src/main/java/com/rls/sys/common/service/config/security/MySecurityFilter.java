@@ -1,3 +1,4 @@
+/*
 
 package com.rls.sys.common.service.config.security;
 
@@ -15,6 +16,7 @@ import javax.servlet.*;
 import java.io.IOException;
 
 
+*/
 /**
  * @author ：lz
  * @version ： 1.0
@@ -24,7 +26,8 @@ import java.io.IOException;
  *              该MyInvocationSecurityMetadataSourceService的作用提从数据库提取权限和资源，装配到HashMap中，
  *           供Spring Security使用，用于权限校验。
  * @date ：2018/4/18 12:03
- */
+ *//*
+
 
 @Component
 public class MySecurityFilter extends AbstractSecurityInterceptor implements Filter {
@@ -84,3 +87,4 @@ public class MySecurityFilter extends AbstractSecurityInterceptor implements Fil
     }
 }
 
+*/

@@ -1,7 +1,11 @@
 package com.rls.sys.common.manager.impl;
 
+import com.rls.sys.common.dao.SysRoleRepository;
+import com.rls.sys.common.entity.SysResource;
 import com.rls.sys.common.entity.SysRole;
+import com.rls.sys.common.manager.SysResourceMng;
 import com.rls.sys.common.manager.SysRoleMng;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +19,9 @@ import java.util.List;
  */
 @Service
 public class SysRoleMngImpl implements SysRoleMng {
+
+    @Autowired
+    private SysRoleRepository sysRoleRepository;
 
     @Override
     public SysRole selectOne(SysRole entity) {
@@ -33,7 +40,7 @@ public class SysRoleMngImpl implements SysRoleMng {
 
     @Override
     public List<SysRole> selectListAll() {
-        return null;
+        return sysRoleRepository.findAll();
     }
 
     @Override

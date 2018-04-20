@@ -1,6 +1,7 @@
 package com.rls.sys.common.service.config.swagger;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -32,7 +33,7 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("rls-sys-service")
-                .description("rls-sys-service: api接口文档")
+                .description("Spring Boot中使用Swagger2构建RESTful APIs接口测试文档")
                 .termsOfServiceUrl("https://github.com/Lizhendahaoren/rls")
                 .version("1.0")
                 .build();

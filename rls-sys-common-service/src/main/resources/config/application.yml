@@ -18,8 +18,8 @@ spring:
     jpa:
       repositories:
         enabled: true
-  resources:
-    cache-period: 10000
+  #resources:
+    #cache-period: 10000
   jpa:
     open-in-view: true
     show-sql: true    #显示执行sql
@@ -27,8 +27,8 @@ spring:
     database: mysql
     hibernate:
       ddl-auto: update    #生成表策略
-      naming:
-        strategy: org.hibernate.cfg.ImprovedNamingStrategy  #表/字段的命名映射策略
+      #naming:
+        #strategy: org.hibernate.cfg.ImprovedNamingStrategy  #表/字段的命名映射策略
     properties:
       hibernate:
         dialect : org.hibernate.dialect.MySQL5InnoDBDialect   #数据库方言  mysql 5.7 使用这个
@@ -51,6 +51,9 @@ spring:
         test-while-idle: true
         min-evictable-idle-time-millis: 60000
         max-evictable-idle-time-millis: 300000
+
+#   spring security 拦截设置
+
 
 
 #  日志配置

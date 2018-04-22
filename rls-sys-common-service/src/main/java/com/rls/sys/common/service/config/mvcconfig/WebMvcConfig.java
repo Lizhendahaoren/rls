@@ -15,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.*;
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 
-
     //配置静态访问资源
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -27,8 +26,8 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addViewControllers(ViewControllerRegistry registry) {
-      //  registry.addViewController("/").setViewName("forward:/index.html");
-       // registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+        registry.addViewController("/").setViewName("forward:/index.html");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
         super.addViewControllers(registry);
     }
 

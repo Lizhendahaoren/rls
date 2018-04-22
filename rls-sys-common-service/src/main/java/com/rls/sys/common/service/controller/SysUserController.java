@@ -19,18 +19,9 @@ import javax.annotation.security.PermitAll;
  * @Description : SysUser
  * @date ：2018/4/10 15:33
  */
-@Api(value = "/user",description = "测试")
-@RestController
-@RequestMapping("/user")
 public class SysUserController extends RBaseController<SysUser> {
 
     private Logger logger = LoggerFactory.getLogger(SysUserController.class);
 
-    @ApiOperation(value="更新用户详细信息", notes="根据url的id来指定更新对象，并根据传过来的user信息来更新用户详细信息")
-    @RequestMapping("/text")
-    public void text(){
-
-        logger.info("----------text----------------------");
-    }
 
 }

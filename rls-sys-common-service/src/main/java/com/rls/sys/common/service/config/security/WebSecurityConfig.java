@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 
@@ -26,23 +25,25 @@ import org.springframework.security.web.access.intercept.FilterSecurityIntercept
 @EnableGlobalMethodSecurity(prePostEnabled = true) //开启security注解
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-   @Autowired
-    private MySecurityFilter mySecurityFilter;//过滤器
+    @Autowired
+    private MySecurityFilter mySecurityFilterm;
 
     @Autowired
-    MyAccessDecisionManager myAccessDecisionManager;//决策器
+    private MyAuthenticationProvider authenticationProvider;
 
-    @Autowired
-    private MyUserDetailsService userDetailsService;//自定义用户服务
-
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
     //Request层面的配置，对应XML Configuration中的<http>元素
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.addFilterBefore(mySecurityFilterm, FilterSecurityInterceptor.class);//在正确的位置添加我们自定义的过滤器
         //允许所有用户访问"/"和"/home"
         http.authorizeRequests()
-                .antMatchers("/", "/index", "/swagger-ui.html", "v2/api-docs", "/swagger/**").permitAll();
-               /* .anyRequest().authenticated()//其他地址的访问均需验证权限
+                .antMatchers("/", "/index").permitAll();
+             /*   .anyRequest().authenticated()//其他地址的访问均需验证权限
                 .and()
                 .formLogin()
                 .loginPage("/login") //指定登录页是"/login"
@@ -60,12 +61,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/js/**", "/css/**", "/images/**", "/**/favicon.ico", "/swagger/**");
+        web.ignoring().antMatchers("/v2/api-docs/**");
+        web.ignoring().antMatchers("/swagger.json");
+        web.ignoring().antMatchers("/swagger-ui.html");
+        web.ignoring().antMatchers("/swagger-resources/**");
+        web.ignoring().antMatchers("/webjars/**");
     }
 
     //身份验证配置，用于注入自定义身份验证Bean和密码校验规则
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+        auth.authenticationProvider(authenticationProvider);
+        auth.userDetailsService(myUserDetailsService()).passwordEncoder(new BCryptPasswordEncoder());
+    }
+
+    /**
+     * 自定义UserDetailsService，从数据库中读取用户信息
+     * @return
+     */
+    @Bean
+    public MyUserDetailsService myUserDetailsService(){
+        return new MyUserDetailsService();
     }
 
 }

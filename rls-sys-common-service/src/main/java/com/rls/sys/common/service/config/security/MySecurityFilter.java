@@ -1,4 +1,5 @@
 
+
 package com.rls.sys.common.service.config.security;
 
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import java.io.IOException;
 
 
 
+
 /**
  * @author ：lz
  * @version ： 1.0
@@ -27,25 +29,6 @@ import java.io.IOException;
  *           供Spring Security使用，用于权限校验。
  * @date ：2018/4/18 12:03
  */
-
-
-import com.rls.sys.common.service.config.security.MyAccessDecisionManager;
-import com.rls.sys.common.service.config.security.MySecurityMetadataSourceService;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.SecurityMetadataSource;
-import org.springframework.security.access.intercept.AbstractSecurityInterceptor;
-import org.springframework.security.access.intercept.InterceptorStatusToken;
-import org.springframework.security.web.FilterInvocation;
-import org.springframework.stereotype.Component;
-
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import java.io.IOException;
-
-
 @Component
 public class MySecurityFilter extends AbstractSecurityInterceptor implements Filter {
 

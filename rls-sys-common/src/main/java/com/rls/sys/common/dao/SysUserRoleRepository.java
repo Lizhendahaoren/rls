@@ -22,7 +22,7 @@ public interface SysUserRoleRepository extends RBaseRepository<SysUserRole> {
 
     @RImportant
     @RDescription("根据用户名查找角色名")
-    @Query(value = "select r.roleName from rls_sys_user_role ur left join  rls_sys_user u  on ur.sysUserId = u.id "
-            + " left join rls_sys_role r  on ur.sysRoleId = r.id  where  u.userName = ?1", nativeQuery = true)
+    @Query(value = "select r.role_name from rls_sys_user_role ur left join  rls_sys_user u  on ur.sys_user_id = u.id "
+            + " left join rls_sys_role r  on ur.sys_role_id = r.id  where  u.user_name = ?1", nativeQuery = true)
     List<String> findRoleNameByUserName(String userName);
 }

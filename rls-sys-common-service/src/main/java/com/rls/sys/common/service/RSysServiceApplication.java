@@ -12,6 +12,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
@@ -19,6 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @ServletComponentScan
 @EnableTransactionManagement
 @EnableCaching
+@EnableWebSecurity //启用web安全
 @ComponentScan(basePackages = {"com.rls.sys.common", "com.rls.sys.common.service"})
 @EntityScan(basePackages = {"com.rls.base.common.entity","com.rls.sys.common.entity"})
 @EnableJpaRepositories(basePackages = {"com.rls.base.common.dao","com.rls.sys.common.dao"})

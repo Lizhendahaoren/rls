@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * @author ：lz
@@ -167,6 +168,7 @@ public class RObjectUtil<T> {
     //object --> Object array
     public static Object[] toObjectArray(@Nullable Object source) {
         if (isArray(source)) return new Object[0];
+        //String[] strings = Stream.of(source).toArray(String[]::new);
         return org.springframework.util.ObjectUtils.toObjectArray(source);
     }
 
@@ -210,7 +212,8 @@ public class RObjectUtil<T> {
     //man
     public static void main(String[] args) {
         boolean date = isDate(new  Date());
-
+        LocalDateTime localDateTime = RDdteTimeUtil.dateToLocalDateTime(new Date());
+        RDdteTimeUtil.stringToLocalDate("2018-07-12",RDdteTimeUtil.RDateStyle.YYYY_MM_DD);
         LocalDateTime now = LocalDateTime.now();
         Date a = new Date();
         System.out.print("a:"+a);

@@ -18,15 +18,6 @@ import java.util.GregorianCalendar;
  * @date ：2018/4/17 14:12
  */
 public class RDdteTimeUtil {
-
-
-    //时间  Instant : 一是从原点开始到指定时间点的秒数s，二是距离该秒数s的纳秒数。  Duration对象表示两个时间点之间的距离
-    private static boolean getTime(final Date date1, final Date date2) {
-
-        Instant end = Instant.now();
-        return DateUtils.isSameDay(date1, date2);
-    }
-
     //----------------判断 + 比较-------------------------------------
     /**
      * 比较两个时间LocalDateTime大小
@@ -75,9 +66,7 @@ public class RDdteTimeUtil {
         return begin.toLocalDate().equals(end.toLocalDate());
     }
 
-
     //---------------转换----------------------------------------------
-
     /**
      * Date 转 LocalDateTime
      *

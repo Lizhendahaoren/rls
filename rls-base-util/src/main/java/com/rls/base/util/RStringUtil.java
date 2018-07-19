@@ -122,8 +122,14 @@ public class RStringUtil{
     }
 
     public static void main(String[] args) {
-        boolean s李镇 = isContainChinese("李镇");
-        System.out.printf(""+s李镇);
+
+        String a ="";
+        boolean b = hasText(a);
+        boolean c = hasText("");
+        boolean d = hasText(null);
+        System.out.printf(":"+b);
+        System.out.printf(":"+c);
+        System.out.printf(":"+d);
     }
 
 }

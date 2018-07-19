@@ -79,4 +79,11 @@ public class RJsonUtil {
     public static <T> List<T> toList(String text, Class<T> clazz) {
         return JSON.parseArray(text, clazz);
     }
+
+
+    public static void main(String[] args) {
+        String a  = "[1,2,3,4]";
+        List<Long> longs = toList(a, Long.class);
+        longs.stream().forEach(v-> System.out.printf(":"+v));
+    }
 }
